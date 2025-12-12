@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CLYNIX PAGE</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #e6d7ff, #f3ecff);
+      display: flex;
+    }
+
+    /* Left Fixed Panel */
+    .left-panel {
+      width: 280px;
+      background: rgba(181, 32, 173, 0.35);
+      backdrop-filter: blur(5px);
+      padding: 20px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+      text-align: center;
+      z-index: 10;
+    }
+
+    .left-panel img {
+      width: 180px;
+      height: auto;
+      margin: 15px auto;
+      border-radius: 12px;
+    }
+
+    .download-btn {
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: #890598;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .download-btn:hover {
+      background: #5d44a7;
+    }
+
+    .menu a {
+      display: block;
+      margin: 10px 0;
+      text-decoration: none;
+      color: #4a267a;
+      font-weight: bold;
+    }
+
+    /* RIGHT CONTENT AREA */
+    .right-content {
+      position: relative;
+      margin-left: 280px;
+      width: calc(100% - 280px);
+      height: 100vh;
+      overflow-y: auto;
+      padding: 30px;
+      z-index: 1;
+    }
+
+    /* FIXED BG IMAGE ONLY ON RIGHT SIDE */
+    .right-content::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 280px;
+      width: calc(100% - 280px);
+      height: 100vh;
+      background-image: url('images/simcuraRX.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 60%;
+      z-index: -1;
+      opacity: 0.2;
+    }
+
+    /* Scrollable Top Image */
+    .top-scroll-image img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+    /* Card Style */
+    .card {
+      background: rgba(255, 255, 255, 0.50);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .left-panel {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+
+      .right-content {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+      }
+
+      .right-content::before {
+        background-attachment: scroll;
+        background-size: cover;
+        left: 0;
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Left Fixed Section -->
+  <div class="left-panel">
+    <h2><u>CLYNIX</u></h2>
+
+    <img src="images/clyniximage.png" alt="App Image" />
+
+    <button 
+      class="download-btn"
+      onclick="window.open('https://play.google.com/store/apps/details?id=com.spotify.music&hl=en', '_blank')">
+      DOWNLOAD NOW!
+    </button>
+
+    <div class="menu" style="margin-top: 20px;">
+      <a href="#home"><u>Home</u></a>
+      <a href="#about"><u>About</u></a>
+      <a href="#services"><u>Services</u></a>
+      <a href="#contact"><u>Contact Us</u></a>
+    </div>
+  </div>
+
+  <!-- RIGHT SCROLLABLE SECTION -->
+  <div class="right-content">
+
+      <!-- Scrollable Top Image -->
+      <div class="top-scroll-image">
+          <img src="images/clynixhead.png" alt="Top Banner">
+      </div>
+
+      <h1 id="home" style="color:#4a267a;"><u>Welcome to Clynix App</u></h1>
+      <h3>Your health is our priority</h3>
+      <div class="card" id="home">CLYNIX is your all-in-one solution for medicine delivery, health reminders, and doorstep collection.
+         <div>Order medicines fast, track them in real time, and manage your prescriptions without hassle.</div></div>
+      <div class="card" id="about"><h4>Why Clynix app?</h4>
+          <p>
+<br>
+Managing medicines shouldn’t feel like a chore.<br>
+That’s why CLYNIX exists.<br>
+<br>
+With CLYNIX, you can order your medicines in minutes, get them delivered fast, and track every step without confusion.<br>
+<br>
+Need to upload a prescription? Done.<br>
+Need a doorstep pickup? Done.<br>
+Need reminders so you never miss a dose? Done.<br>
+<br>
+CLYNIX keeps everything simple — from ordering to organizing your health.<br>
+No travel. No waiting. No last-minute stress.<br>
+<br>
+Your health matters every day.<br>
+CLYNIX just makes it easier.</p></div>
+      <div class="card" id="services"><h2>Our Services:</h2><br>
+        <ul>
+          <li>Prescription medicines</li>
+          <li>Fast medicines delivery</li>
+          <li>Periodic meds</li>
+          <li>Doctor consultation</li>
+          <li>Meds reminder</li>
+        </ul>
+      </div>
+
+      <div class="card" id="contact" style="font-family: 'Poppins', sans-serif;">
+  
+      <div style="display:flex; align-items:center; margin-bottom:10px;">
+          <h2 style="margin-left:10px; font-family: 'Poppins', sans-serif;">
+          Contact Us
+          </h2>
+      </div>
+
+      <p style="font-size:16px; line-height:1.6; color:#444;">
+        If you have any questions or complaints about these Terms, please contact us:
+      </p>
+
+      <ul style="margin-top:10px; padding-left:20px; font-size:17px;">
+        <li style="margin-bottom:12px;">
+          📧 <b>Email:</b>
+          <a href="mailto:simcurarh@gmail.com" style="color:#1e73ff; text-decoration:none;">
+            simcurarx@gmail.com
+          </a>
+        </li>
+
+        <li>
+          📞 <b>Phone:</b>
+          <a href="tel:+918309056333" style="color:#000; text-decoration:none;">
+            +91-6300778241
+          </a>
+        </li>
+      </ul>
+
+    </div>
+
+
+  </div>
+
+</body>
+</html>
