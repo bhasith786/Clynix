@@ -34,6 +34,7 @@
       box-shadow: 2px 0 10px rgba(0,0,0,0.05);
       text-align: center;
       z-index: 10;
+      overflow-y: auto;
     }
 
     .left-panel h2 {
@@ -46,6 +47,34 @@
       margin: 15px auto;
       border-radius: 14px;
     }
+    /* APP LIST */
+    .app-list {
+      display: flex;
+      flex-direction: column;
+      gap: 35px; /* SPACE BETWEEN APPS */
+      margin-bottom: 30px;
+    }
+
+    /* SINGLE APP CARD */
+    .app-item {
+      background: rgba(255,255,255,0.25);
+      padding: 15px;
+      border-radius: 16px;
+    }
+
+    .app-item h2 {
+      font-size: 20px;
+      color: #3d145f;
+      margin-bottom: 10px;
+    }
+
+    .app-item img {
+      width: 170px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+    }
+
+
 
     .download-btn {
       margin-top: 15px;
@@ -222,6 +251,69 @@
     .contact-title {
       color: #4a267a;
     }
+    /* BOTTOM APP DOWNLOAD POPUP */
+    #app-popup {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;        /* 👈 LEFT BOTTOM */
+      width: 360px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      z-index: 999;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+
+    #app-popup img {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+    }
+
+    .popup-text {
+      flex: 1;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .popup-text strong {
+      display: block;
+      font-size: 14px;
+      color: #4a267a;
+    }
+
+    #app-popup button {
+      background: #890598;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    #app-popup.hide {
+      transform: translateY(120%);
+      opacity: 0;
+    }
+    #close-popup {
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      color: #0a0a0a;
+    }
+
+    #close-popup:hover {
+      color: #890598;
+    }
+
 
 
     /* RESPONSIVE */
@@ -256,14 +348,25 @@
 
   <!-- LEFT PANEL -->
   <div class="left-panel">
-    <h2><u>CLYNIX</u></h2>
+    <div class="app-list">
+      <!-- APP 1 -->
+      <div class="app-item">
+        <h2><u>CLYNIX</u></h2>
+        <img src="images/clyniximage.png" alt="Clynix App">
+        <a href="https://play.google.com/store/apps/details?id=com.clynix.clynix&hl=en" target="_blank">
+          <button class="download-btn">DOWNLOAD NOW</button>
+        </a>
+      </div>
 
-    <img src="images/clyniximage.png" alt="Clynix App">
-
-    <a href="https://play.google.com/store/apps/details?id=com.clynix.clynix&hl=en" target="_blank">
-      <button class="download-btn">DOWNLOAD NOW</button>
-    </a>
-
+      <!-- APP 2 -->
+      <div class="app-item">
+        <h2><u>CLYNIX Rider</u></h2>
+        <img src="images/clyniximage.png" alt="Clynix Rider App">
+        <a href="https://play.google.com/store/apps/details?id=com.clynix.clynix&hl=en" target="_blank">
+          <button class="download-btn">DOWNLOAD NOW</button>
+        </a>
+      </div>
+    </div>
     <div class="menu">
       <a href="#home">Home</a>
       <a href="#about">About</a>
@@ -300,7 +403,7 @@
 
       <ul class="about-features">
         <li>Easy prescription upload</li>
-        <li>Doorstep pickup & fast delivery</li>
+        <li>Doorstep delivery drop off & fast delivery</li>
         <li>Smart medicine reminders</li>
       </ul>
 
@@ -351,7 +454,7 @@
 
     <div class="card" id="contact">
       <h2 class="contact-title">Contact Us</h2>
-      <p>If you have any questions, please reach out:</p><br>
+      <p>If you have any queries, please reach out:</p><br>
 
       <ul class="contact-list">
         <li>📧 <b>Email:</b> services.clynix@gmail.com</li>
@@ -360,6 +463,36 @@
     </div>
 
   </div>
+   <!-- Bottom App Download Popup -->
+  <div id="app-popup">
+    <img src="images/clyniximage.png" alt="Clynix App">
+
+    <div class="popup-text">
+      <strong>CLYNIX App</strong>
+      <span>Download for faster medicine delivery</span>
+    </div>
+
+    <a href="https://play.google.com/store/apps/details?id=com.clynix.clynix&hl=en" target="_blank">
+      <button>Download</button>
+    </a>
+
+    <span id="close-popup">✕</span>
+  </div>
+
+
+
+  <script>
+    const popup = document.getElementById("app-popup");
+    const closeBtn = document.getElementById("close-popup");
+
+    // Always show popup on page load
+    popup.classList.remove("hide");
+
+    // Hide popup only when close button is clicked
+    closeBtn.addEventListener("click", () => {
+      popup.classList.add("hide");
+    });
+  </script>
 
 </body>
 </html>
